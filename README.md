@@ -8,6 +8,8 @@ The goal of Webpack is to unify all the sources and module types in a way that i
 - Images url
 - ES modules
 
+- Webpack runs on top of headless JS environment such as Node.js.
+
 ## Entry point
 
 The entry point is the file that webpack will look first to start building the dependency graph. It can be a single file or an array of files.

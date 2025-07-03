@@ -1,0 +1,31 @@
+{
+  "name": "poc-webpack",
+  "version": "1.0.0",
+  "description": "The goal of Webpack is to unify all the sources and module types in a way that is possible to import everything in javascript code.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "start": "webpack serve --open --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henriqueidt/poc-webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henriqueidt/poc-webpack/issues"
+  },
+  "homepage": "https://github.com/henriqueidt/poc-webpack#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
