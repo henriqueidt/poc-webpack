@@ -1,0 +1,8 @@
+{
+  "presets": [
+    // @babel/preset-env is a collection of plugins to transform modern JS into a version compatible with older browsers.
+    "@babel/preset-env",
+    // @babel/preset-react is a collection of plugins to transform JSX syntax into JavaScript.
+    "@babel/preset-react"
+  ]
+}

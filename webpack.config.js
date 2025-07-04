@@ -30,6 +30,13 @@ module.exports = {
         // The sass-loader will compile Sass to CSS, the css-loader will process the CSS files, and the style-loader will inject the styles into the DOM.
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        // The babel-loader will transpile the JavaScript files using Babel.
+        // It will use the configuration from babel.config.json.
+        use: ["babel-loader"],
+      },
     ],
   },
 };
