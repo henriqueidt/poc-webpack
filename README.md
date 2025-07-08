@@ -94,3 +94,18 @@ $ npm run build
 asset 968.js 471 KiB [emitted] [minimized] [big] (id hint: vendors) 1 related asset
 asset index.js 7.93 KiB [emitted] [minimized] (name: index)
 ```
+
+## Dynamic imports
+
+Webpack also allows us to use dynamic imports to split code and load modules on demand.
+
+By dynamically importing a module, we can tell webpack to create a separate chunk for that module, which will be loaded only when needed.
+
+```javascript
+// src/index.js
+const getUsersModule = () =>
+  import(/* webpackChunkName: "usersAPI" */ "./common/userAPI");
+getUsersModule().then(({ getUsers }) => {
+  getUsers().then((json) => console.log(json));
+});
+```

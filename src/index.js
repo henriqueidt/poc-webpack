@@ -4,17 +4,17 @@ import moment from "moment";
 
 import "./style.css";
 import "./style.scss";
-import { getUsers } from "./common/userAPI";
+const getUsersModule = () =>
+  import(/* webpackChunkName: "usersAPI" */ "./common/userAPI");
 
 console.log("Hello, World!");
 
-getUsers()
-  .then((users) => {
-    console.log("Users fetched:", users);
-  })
-  .catch((error) => {
-    console.error("Error fetching users:", error);
+const loadUsersButton = document.getElementById("load-users-btn");
+loadUsersButton.addEventListener("click", () => {
+  getUsersModule().then(({ getUsers }) => {
+    getUsers().then((json) => console.log(json));
   });
+});
 
 const modernFunction = () => {
   return [1, 2, 3, 4];
