@@ -57,3 +57,40 @@ Webpack can run in different modes, which will change the way it processes files
 ## Code splitting / Lazy loading
 
 Webpack can split the code into smaller chunks that can be loaded on demand. This is useful for large applications where you don't want to load everything at once.
+
+For example, if we install the `moment.js` library and just import it normally into our `index.js` file:
+
+```javascript
+// src/index.js
+import moment from "moment";
+console.log(moment().format("MMMM Do YYYY, h:mm:ss a"));
+```
+
+Then we run `npm run build`, we'll see that the entire moment.js library is included in the bundle, making it too big. Even if we don't use all of its features:
+
+```bash
+$ npm run build
+
+asset index.js 478 KiB [emitted] [minimized] [big] (name: index) 1 related asset
+```
+
+If we include the property to split chunks in webpack config, it will create a separate chunk for the moment.js library:
+
+```javascript
+// webpack.config.js
+module.exports = {
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
+};
+```
+
+Now, when we run `npm run build`, we'll see that the moment.js library is split into a separate chunk, and the main bundle is much smaller:
+
+```bash
+$ npm run build
+asset 968.js 471 KiB [emitted] [minimized] [big] (id hint: vendors) 1 related asset
+asset index.js 7.93 KiB [emitted] [minimized] (name: index)
+```
